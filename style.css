@@ -1,0 +1,318 @@
+:root {
+    --bg-dark: #0a0f1d;
+    --bg-card: #131a2e;
+    --blue-bright: #00d2ff;
+    --blue-mid: #0066ff;
+    --blue-dark: #002244;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --shadow-neon: rgba(0, 210, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Buscador Principal */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#main-search {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    border: 2px solid var(--blue-mid);
+    background-color: var(--bg-card);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#main-search:focus {
+    border-color: var(--blue-bright);
+    box-shadow: 0 0 15px var(--shadow-neon);
+}
+
+/* Encabezado y Efectos Flotantes */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.floating-title {
+    font-size: 3.5rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: float 4s ease-in-out infinite;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.floating-subtitle {
+    font-size: 1.5rem;
+    color: var(--blue-bright);
+    margin-top: 0.5rem;
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.countdown-box {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    background: linear-gradient(90deg, transparent, var(--bg-card), transparent);
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+/* Grid del Dashboard */
+.dashboard {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    padding: 1.8rem;
+    cursor: pointer;
+    user-select: none;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    transition: filter 0.3s ease;
+}
+
+.card-header h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.category-boca {
+    background: linear-gradient(135deg, rgba(0,34,68,0.85), rgba(0,102,255,0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600&auto=format&fit=crop');
+}
+.category-kitchen {
+    background: linear-gradient(135deg, rgba(0,20,40,0.85), rgba(0,70,170,0.85)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop');
+}
+.category-cards {
+    background: linear-gradient(135deg, rgba(0,10,30,0.85), rgba(0,50,130,0.85)), url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?q=80&w=600&auto=format&fit=crop');
+}
+.category-football {
+    background: linear-gradient(135deg, rgba(0,40,90,0.85), rgba(0,130,255,0.85)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600&auto=format&fit=crop');
+}
+
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.8rem;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+    background-color: rgba(10, 15, 29, 0.5);
+}
+
+.card.active .card-content {
+    max-height: 2000px;
+    padding: 1.8rem;
+    border-top: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+h4 {
+    color: var(--blue-bright);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.stats-grid p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Ajustes Visuales para ver las Recetas */
+.recipe-list {
+    list-style-type: none;
+    margin-bottom: 1.5rem;
+}
+
+.recipe-list li {
+    background: rgba(255,255,255,0.03);
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-left: 3px solid var(--blue-mid);
+    border-radius: 0 6px 6px 0;
+}
+
+.recipe-list li strong {
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.recipe-detail {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 1.5rem 0;
+}
+
+#recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+#recipe-form input, #recipe-form textarea {
+    background: var(--bg-dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.8rem;
+    color: white;
+    border-radius: 6px;
+    outline: none;
+}
+
+#recipe-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+#recipe-form input:focus, #recipe-form textarea:focus {
+    border-color: var(--blue-mid);
+}
+
+button {
+    background: linear-gradient(90deg, var(--blue-mid), var(--blue-bright));
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* --- DISEÑO TRADICIONAL DE PALITOS DE TRUCO --- */
+.truco-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.team {
+    text-align: center;
+    width: 45%;
+}
+
+.team h5 {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.points {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* El grid aloja los cuadrados contenedores de 5 palitos */
+.fosforos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    min-height: 70px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Caja contenedora para un grupo de hasta 5 palitos */
+.box-5 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+/* El trazo individual de cada palito (Estilo Fósforo Neón Varonil) */
+.line {
+    position: absolute;
+    background-color: var(--blue-bright);
+    box-shadow: 0 0 5px var(--blue-bright);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+/* Mapeo de posiciones para formar el cuadrado clásico */
+.line-1 { top: 0; left: 10%; width: 80%; height: 4px; }          /* Arriba */
+.line-2 { top: 10%; left: 0; width: 4px; height: 80%; }          /* Izquierda */
+.line-3 { bottom: 0; left: 10%; width: 80%; height: 4px; }       /* Abajo */
+.line-4 { top: 10%; right: 0; width: 4px; height: 80%; }         /* Derecha */
+.line-5 {                                                        /* Diagonal */
+    top: 10%; 
+    left: 10%; 
+    width: 4px; 
+    height: 110%; 
+    transform: rotate(-45deg); 
+    transform-origin: top left;
+}
+
+.controls button {
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.2rem;
+    font-size: 1rem;
+}
+
+.reset-btn {
+    width: 100%;
+    background: #222;
+    border: 1px solid #444;
+}
