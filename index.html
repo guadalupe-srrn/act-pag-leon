@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de León</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Buscador Principal -->
+    <div class="search-container">
+        <input type="text" id="main-search" placeholder="Buscar categorías o contenido...">
+    </div>
+
+    <!-- Encabezado con Mensajes Flotantes -->
+    <header class="hero">
+        <h1 class="floating-title">¡Hola, León!</h1>
+        <h2 class="floating-subtitle">¿Qué quieres ver hoy?</h2>
+        
+        <!-- Contador de Cumpleaños -->
+        <div id="countdown-container" class="countdown-box"></div>
+    </header>
+
+    <!-- Contenedor Principal de Categorías -->
+    <main class="dashboard">
+
+        <!-- Categoría 1: Boca Juniors -->
+        <section class="card" data-title="boca juniors cabj">
+            <div class="card-header category-boca">
+                <h3>Club Atlético Boca Juniors</h3>
+            </div>
+            <div class="card-content">
+                <h4>Estadísticas Actuales (Mayo 2026 en adelante)</h4>
+                <div class="stats-grid">
+                    <p><strong>Liga Profesional 2026:</strong> El torneo local arrancó con fuerza tras la Copa de la Liga. Boca se posiciona firmemente en los primeros puestos tras la racha de partidos de mayo.</p>
+                    <p><strong>Copa Libertadores 2026:</strong> Terminó la fase de grupos a finales de mayo de manera invicta. El Xeneize ya conoce a su rival para los octavos de final que se jugarán tras el receso.</p>
+                    <p><strong>Mercado de Pases (Invierno 2026):</strong> El consejo de fútbol ya se mueve buscando 3 refuerzos de jerarquía de cara a la fase de eliminación directa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categoría 2: Cocina -->
+        <section class="card" data-title="cocina recetas comida">
+            <div class="card-header category-kitchen">
+                <h3>Cocina</h3>
+            </div>
+            <div class="card-content">
+                <h4>Recetas del Chef</h4>
+                <ul class="recipe-list">
+                    <li>
+                        <strong>Sorrentinos Caseros:</strong>
+                        <p class="recipe-detail">Masa con huevo, rellenos de jamón y queso, o calabaza. Salsa fileto para acompañar.</p>
+                    </li>
+                    <li>
+                        <strong>Lasagna Completa:</strong>
+                        <p class="recipe-detail">Capas intercaladas de jamón y queso, y de verdura con ricota.</p>
+                    </li>
+                    <li>
+                        <strong>Canelones de Carne:</strong>
+                        <p class="recipe-detail">Rellenos de pollo o carne picada con espinaca, bañados en salsa mixta.</p>
+                    </li>
+                </ul>
+                
+                <hr>
+                
+                <h4>Mis Recetas</h4>
+                <ul id="my-recipes-list" class="recipe-list">
+                    <!-- Recetas agregadas aparecerán aquí -->
+                </ul>
+
+                <form id="recipe-form">
+                    <input type="text" id="recipe-name" placeholder="Nombre de tu receta..." required>
+                    <textarea id="recipe-ingredients" placeholder="Ingredientes y pasos de la receta..." required></textarea>
+                    <button type="submit">Guardar Receta</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Categoría 3: Cartas (Anotador de Truco Tradicional) -->
+        <section class="card" data-title="cartas truco anotador">
+            <div class="card-header category-cards">
+                <h3>Anotador de Truco</h3>
+            </div>
+            <div class="card-content">
+                <div class="truco-container">
+                    <!-- Ellos -->
+                    <div class="team">
+                        <h5>Ellos</h5>
+                        <div class="points" id="points-ellos">0</div>
+                        
+                        <!-- Contenedor donde se dibujan los palitos -->
+                        <div class="fosforos-grid" id="fosforos-ellos"></div>
+                        
+                        <div class="controls">
+                            <button onclick="cambiarPuntos('ellos', 1)">+1</button>
+                            <button onclick="cambiarPuntos('ellos', -1)">-1</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Nosotros -->
+                    <div class="team">
+                        <h5>Nosotros</h5>
+                        <div class="points" id="points-nosotros">0</div>
+                        
+                        <!-- Contenedor donde se dibujan los palitos -->
+                        <div class="fosforos-grid" id="fosforos-nosotros"></div>
+                        
+                        <div class="controls">
+                            <button onclick="cambiarPuntos('nosotros', 1)">+1</button>
+                            <button onclick="cambiarPuntos('nosotros', -1)">-1</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="reset-btn" onclick="reiniciarTruco()">Reiniciar Partido</button>
+            </div>
+        </section>
+
+        <!-- Categoría 4: Fútbol Mundial -->
+        <section class="card" data-title="futbol mundial estadisticas">
+            <div class="card-header category-football">
+                <h3>Fútbol Mundial</h3>
+            </div>
+            <div class="card-content">
+                <h4>Estadísticas Globales (Junio 2026)</h4>
+                <div class="stats-grid">
+                    <p><strong>Copa del Mundo 2026:</strong> Las selecciones ya están concentradas en Norteamérica. Los planteles oficiales quedaron confirmados a finales de mayo y comenzó la máxima fiesta del fútbol.</p>
+                    <p><strong>Fin de Temporada Europea:</strong> Tras las finales continentales de mayo, se definieron los nuevos monarcas de la Champions League y las ligas principales.</p>
+                    <p><strong>Estadísticas de Goleadores:</strong> Cierre de año europeo histórico con rendimientos brutales que marcan el inicio de la carrera definitiva por el próximo Balón de Oro.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
